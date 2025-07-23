@@ -1,0 +1,70 @@
+"use client";
+import Image from "next/image";
+
+const destinations = [
+  {
+    title: "Study in USA",
+    image: "/flag-united-states-america.jpg",
+  },
+  {
+    title: "Study in UK",
+    image: "/union-jack-flag-background.jpg",
+  },
+  {
+    title: "Study in Australia",
+    image: "/flag-united-states-america.jpg",
+  },
+
+  {
+    title: "Study in Canada",
+    image: "/flag-canada.jpg",
+  },
+
+  {
+    title: "Study in Germany",
+    image: "/flag-germany.jpg",
+  },
+];
+
+export default function Destinations() {
+  return (
+    <section className="bg-yellow-100 py-16 px-6 md:px-20">
+      <div className="max-w-7xl mx-auto">
+        {/* Title & Description */}
+        <div className="text-center md:text-left md:flex md:justify-between md:items-start mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6 md:mb-0">
+            Explore Our Top Study Destinations
+          </h2>
+          <p className="text-gray-700 max-w-xl text-justify text-base">
+            Begin your journey from the comfort of home to the world’s top
+            universities. With <b>Global Degrees</b>, you’ll unlock
+            life-changing academic experiences and personal growth in countries
+            known for excellence in education. Discover your next chapter across
+            borders—with an <b>international degree</b> that sets you apart.
+          </p>
+        </div>
+
+        {/* Grid of Destinations */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {destinations.map((item, index) => (
+            <div
+              key={index}
+              className="relative rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={400}
+                height={400}
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-3 text-lg font-semibold">
+                {item.title}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
