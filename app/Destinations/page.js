@@ -36,8 +36,8 @@ export default function Destinations() {
             Explore Our Top Study Destinations
           </h2>
           <p className="text-gray-700 max-w-xl text-justify text-base">
-            Begin your journey from the comfort of home to the world’s top
-            universities. With <b>Global Degrees</b>, you’ll unlock
+            Begin your journey from the comfort of home to the world&apos;s top
+            universities. With <b>Global Degrees</b>, you&apos;ll unlock
             life-changing academic experiences and personal growth in countries
             known for excellence in education. Discover your next chapter across
             borders—with an <b>international degree</b> that sets you apart.
