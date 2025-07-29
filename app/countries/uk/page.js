@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import UkUniversities from "../../UkUniversities/page"
 const countryIntakes = {
   UK: ["January", "September"],
 };
@@ -209,6 +209,7 @@ export default function UkPage() {
           </div>
         </div>
       </div>
+      <UkUniversities />
     </>
   );
 }

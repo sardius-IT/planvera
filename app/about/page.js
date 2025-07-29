@@ -12,7 +12,7 @@ const fadeInUp = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
+    <div className="bg-white text-black px-4 sm:px-6 md:px-16 py-12 space-y-20">
       {/* Hero Section */}
       <motion.div
         initial="hidden"
@@ -20,48 +20,57 @@ export default function AboutPage() {
         variants={fadeInUp}
         className="flex flex-col md:flex-row items-center gap-10"
       >
-        <div className="md:w-1/2 space-y-6">
-          <h2 className="text-4xl font-bold leading-tight">
+        <div className="md:w-1/2 space-y-6 text-center md:text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
             About <span className="text-blue-700">Planvera</span> Consultancy
           </h2>
-          <p className="text-lg">
+          <p className="text-base sm:text-lg">
             Planvera is a premier overseas education consultancy dedicated to guiding students in their journey to study abroad. We specialize in helping students choose the right country, university, and program that fits their academic goals and career ambitions.
           </p>
-          <p className="text-lg">
+          <p className="text-base sm:text-lg">
             With a presence in multiple countries and a team of experienced counselors, we ensure a smooth and transparent admission process, from applications to visa and post-arrival support.
           </p>
         </div>
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 w-full">
           <Image
-            src="/aboutteam.jpg"
+            src="/v9j8_ky1g_211101.jpg"
             alt="Our team"
             width={600}
             height={400}
-            className="rounded-xl shadow-md"
+            className=" w-full h-auto object-cover"
           />
         </div>
       </motion.div>
 
-      {/* Mission Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-        className="space-y-6 text-center max-w-4xl mx-auto"
-      >
-        <h3 className="text-3xl font-semibold">Our Mission</h3>
-        <p className="text-lg">
-          To provide ethical, reliable, and personalized guidance to students aspiring to study abroad, ensuring they are placed in the best institutions that align with their goals.
-        </p>
-        <Image
-          src="/mission-vision.jpg"
-          alt="Mission"
-          width={800}
-          height={400}
-          className="mx-auto rounded-lg"
-        />
-      </motion.div>
+      {/* Our Mission Section */}
+      <section className="py-16 px-4 sm:px-6 md:px-12">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          {/* Left: Image */}
+          <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-96 overflow-hidden ">
+            <Image
+              src="/ourmission.png"
+              alt="Our Mission"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Right: Mission Content */}
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Our Mission</h2>
+            <p className="text-gray-700 mb-4 text-base sm:text-lg leading-relaxed">
+              At <span className="font-semibold text-blue-800">Planvera</span>, our mission is to empower students to achieve their global academic and career aspirations by providing expert guidance, personalized counseling, and end-to-end support for overseas education.
+            </p>
+            <ul className="text-gray-700 space-y-2 text-left text-sm sm:text-base">
+              <li>🌐 Connecting students with top global universities</li>
+              <li>🎓 Offering ethical, personalized, and transparent advice</li>
+              <li>📑 Simplifying applications, visas, and pre-departure steps</li>
+              <li>💼 Preparing students for success in global careers</li>
+              <li>🌱 Inspiring future-ready global citizens</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* Achievements Section */}
       <div>
@@ -73,25 +82,7 @@ export default function AboutPage() {
         <TopDestinations />
       </div>
 
-      {/* Why Choose Us */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-        className="bg-gray-100 rounded-xl p-10 space-y-6"
-      >
-        <h3 className="text-3xl font-bold text-center">Why Choose Us?</h3>
-        <ul className="list-disc text-lg space-y-2 pl-6">
-          <li>✅ 1000+ Successful Student Placements</li>
-          <li>🌍 Partnerships with 50+ International Universities</li>
-          <li>📈 98% Visa Success Rate</li>
-          <li>💼 Pre-Departure and Post-Arrival Assistance</li>
-          <li>🤝 Personalized Counselling & Career Mapping</li>
-        </ul>
-      </motion.div>
-
-      {/* Additional Highlights */}
+      {/* Success Stories Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -100,23 +91,22 @@ export default function AboutPage() {
         className="grid md:grid-cols-2 gap-10 items-center"
       >
         <Image
-          src="/student-success.jpg"
+          src="/low-angle-graduated-students.jpg"
           alt="Success Stories"
           width={600}
           height={400}
-          className="rounded-xl shadow-md"
+          className="rounded-xl shadow-md w-full h-auto object-cover"
         />
-        <div className="space-y-4">
-          <h3 className="text-3xl font-bold">Student Success Stories</h3>
-          <p className="text-lg">
-            Our alumni are placed in top universities and are now working at leading global companies. We believe every student&apos;s dream deserves a global stage.
+        <div className="space-y-4 text-center md:text-left">
+          <h3 className="text-2xl sm:text-3xl font-bold">Student Success Stories</h3>
+          <p className="text-base sm:text-lg">
+            Our alumni are placed in top universities and are now working at leading global companies. We believe every student's dream deserves a global stage.
           </p>
         </div>
       </motion.div>
     </div>
   );
 }
-
 
 
 

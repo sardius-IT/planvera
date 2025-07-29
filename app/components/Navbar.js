@@ -1,12 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [countriesOpen, setCountriesOpen] = useState(false);
+  const countriesRef = useRef(null);
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (countriesRef.current && !countriesRef.current.contains(event.target)) {
+        setCountriesOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <nav className="bg-blue-950 text-white px-4 py-3 shadow-md">
@@ -23,24 +36,29 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6 text-base relative">
+        <ul className="hidden md:flex gap-6 text-base relative items-center">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
 
-          {/* Countries Dropdown */}
-          <li className="relative group">
-            <button className="flex items-center gap-1">
+          {/* Click-to-toggle Dropdown */}
+          <li className="relative" ref={countriesRef}>
+            <button
+              className="flex items-center gap-1"
+              onClick={() => setCountriesOpen(!countriesOpen)}
+            >
               Countries
               <svg className="w-4 h-4 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M5.5 7l4.5 4 4.5-4h-9z" />
               </svg>
             </button>
-            <ul className="absolute left-0 mt-2 bg-white text-black rounded shadow-md hidden group-hover:block z-50 min-w-[150px]">
-              <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/usa">USA</Link></li>
-              <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/uk">UK</Link></li>
-              <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/canada">Canada</Link></li>
-              <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/australia">Australia</Link></li>
-            </ul>
+            {countriesOpen && (
+              <ul className="absolute left-0 mt-2 bg-white text-black rounded shadow-md z-50 min-w-[150px]">
+                <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/usa">USA</Link></li>
+                <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/uk">UK</Link></li>
+                <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/canada">Canada</Link></li>
+                <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/australia">Australia</Link></li>
+              </ul>
+            )}
           </li>
 
           <li><Link href="/contact">Contact</Link></li>
