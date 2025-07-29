@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
       <body className="font-sans bg-white text-gray-900">
         <TopInfoBar />
         <Navbar />
-        <main className="min-h-screen px-6 py-10">{children}</main>
+        <main className="min-h-screen ">{children}</main>
         <Footer />
       </body>
     </html>
