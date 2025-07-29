@@ -2,24 +2,17 @@
 import Image from "next/image";
 
 const universityLogos = [
-  "lund.png",
-  "uppsala.png",
-  "chalmers.png",
-  "linkoping.png",
-  "aalto.png",
-  "helsinki.png",
-  "politecnico.png",
-  "aarhus.png",
-  "padova.png",
-  "turku.png",
-  "southern-denmark.png",
-  "tum-asia.png",
-  
+  "/Harvard University logo.png",
+  "/Princeton University logo.png",
+  "/stanford university logo.webp",
+  "/Brown University.png",
+  "/columbia unversity.png",
+  "/NYUniversity.png",
 ];
 
 export default function PartnerUniversities() {
   return (
-    <section className="py-16 px-6 bg-white text-center">
+    <section className="py-16 px-6 bg-white text-center overflow-hidden">
       <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
         Our Partner Universities Across Globally
       </h2>
@@ -28,18 +21,20 @@ export default function PartnerUniversities() {
         Your Pathway to Top Universities and Business Schools in Europe.
       </p>
 
-      {/* Logos grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
-        {universityLogos.map((logo, index) => (
-          <div key={index} className="w-32 h-20 relative">
-            <Image
-              src={`/universities/${logo}`}
-              alt={`University Logo ${index + 1}`}
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-        ))}
+      {/* Marquee animation */}
+      <div className="relative overflow-hidden">
+        <div className="flex animate-scroll gap-12">
+          {universityLogos.concat(universityLogos).map((logo, index) => (
+            <div key={index} className="min-w-[120px] h-16 relative">
+              <Image
+                src={logo}
+                alt={`University Logo ${index + 1}`}
+                fill
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Button */}

@@ -50,7 +50,7 @@ export default function Footer() {
           <h4 className="font-semibold text-blue-900 mb-3">Our Location</h4>
           <div className="rounded-md overflow-hidden shadow-lg border border-gray-200">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.8100339518233!2d72.82315761481906!3d19.07997628708785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce2e7379fc65%3A0xb4ed2ed0dbeb1e97!2sMarine%20Lines%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1629810408085!5m2!1sen!2sin"
+              src="https://www.google.com/maps/@16.3280546,80.4494927,3a,75y,205.57h,90t/data=!3m7!1e1!3m5!1sNOBC1T35SQveDfHpDN9pww!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DNOBC1T35SQveDfHpDN9pww%26yaw%3D205.57079!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDcyMi4wIKXMDSoASAFQAw%3D%3D"
               width="100%"
               height="200"
               allowFullScreen=""
