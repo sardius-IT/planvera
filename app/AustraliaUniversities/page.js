@@ -57,7 +57,7 @@ export default function AustraliaUniversities() {
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Australia is home to several prestigious universities offering global education standards.
           <br />
-          Here's a look at some <strong>top Australian universities</strong>.
+          Here&apos;s a look at some <strong>top Australian universities</strong>.
         </p>
 
         <div className="mt-12 overflow-hidden relative">

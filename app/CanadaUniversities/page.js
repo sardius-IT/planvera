@@ -52,7 +52,7 @@ export default function CanadaUniversities() {
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Canada offers top-notch higher education and research opportunities.
           <br />
-          Here's a list of <strong>top Canadian universities</strong> for international students.
+          Here&apos;s a list of <strong>top Canadian universities</strong> for international students.
         </p>
 
         <div className="mt-12 overflow-hidden relative">
