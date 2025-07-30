@@ -14,6 +14,19 @@ export default function MBBSForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Limit to 40 characters and alphabets + space for specific fields
+    if (['fullName', 'branch', 'course'].includes(name)) {
+      if (!/^[a-zA-Z\s]*$/.test(value)) return;
+      if (value.length > 40) return;
+    }
+
+    // Mobile: Only digits, max 10
+    if (name === 'mobile') {
+      if (!/^\d*$/.test(value)) return;
+      if (value.length > 10) return;
+    }
+
     setForm({ ...form, [name]: value });
   };
 
@@ -30,15 +43,46 @@ export default function MBBSForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Final client-side validation
+    if (form.mobile.length !== 10) {
+      alert('Mobile number must be exactly 10 digits.');
+      return;
+    }
+
+    const alpha40 = /^[a-zA-Z\s]{1,40}$/;
+    if (!alpha40.test(form.fullName)) {
+      alert('Full Name must contain only alphabets and be max 40 characters.');
+      return;
+    }
+    if (!alpha40.test(form.branch)) {
+      alert('Branch must contain only alphabets and be max 40 characters.');
+      return;
+    }
+    if (!alpha40.test(form.course)) {
+      alert('Course must contain only alphabets and be max 40 characters.');
+      return;
+    }
+
     try {
-      const res = await fetch('/api/mbbs-form', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+
       const result = await res.json();
       if (result.success) {
         alert('Form submitted successfully!');
+        setForm({
+          fullName: '',
+          email: '',
+          mobile: '',
+          course: '',
+          branch: '',
+          comments: '',
+          countries: [],
+        });
       } else {
         alert('Submission failed. Please try again.');
       }
@@ -52,7 +96,6 @@ export default function MBBSForm() {
     <div className="min-h-screen flex items-center justify-center p-4 rounded-2xl">
       <div className="bg-blue-100 max-w-4xl w-full p-8 rounded-2xl shadow-lg space-y-6">
         <div className="text-center">
-          
           <h1 className="text-black text-2xl font-bold">Get Your Free Counseling Today!</h1>
         </div>
 
@@ -89,6 +132,7 @@ export default function MBBSForm() {
                 value={form.fullName}
                 onChange={handleChange}
                 className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
+                required
               />
             </div>
             <div className="flex-1">
@@ -101,6 +145,7 @@ export default function MBBSForm() {
                 value={form.email}
                 onChange={handleChange}
                 className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
+                required
               />
             </div>
           </div>
@@ -117,6 +162,7 @@ export default function MBBSForm() {
                 value={form.mobile}
                 onChange={handleChange}
                 className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
+                required
               />
             </div>
             <div className="flex-1">
@@ -129,6 +175,7 @@ export default function MBBSForm() {
                 value={form.course}
                 onChange={handleChange}
                 className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
+                required
               />
             </div>
           </div>
@@ -138,16 +185,14 @@ export default function MBBSForm() {
             <label className="block text-sm font-medium text-black">
               Nearest Branch <span className="text-red-600">*</span>
             </label>
-            <select
+            <input
+              type="text"
               name="branch"
               value={form.branch}
               onChange={handleChange}
               className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
-            >
-              <option value="">Guntur</option>
-            
-           
-            </select>
+              required
+            />
           </div>
 
           {/* Comments */}

@@ -3,49 +3,71 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [countriesOpen, setCountriesOpen] = useState(false);
   const countriesRef = useRef(null);
+  const router = useRouter();
 
-  // Close dropdown if clicked outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (countriesRef.current && !countriesRef.current.contains(event.target)) {
         setCountriesOpen(false);
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const handleNavClick = (href) => {
+    router.push(href);
+    setMenuOpen(false);
+    setCountriesOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <nav className="bg-blue-950 text-white px-4 py-3 shadow-md">
+    <nav className="bg-black/20 text-black px-4 py-3  relative z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/planveralogo.png"
-            alt="Planvera Consultants Logo"
-            width={100}
-            height={100}
-            className="rounded-full"
-          />
+          <Image src="/planveralogo.png" alt="Logo" width={120} height={90} className="rounded-full" />
         </Link>
 
+        {/* Hamburger - Mobile Only */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+            setCountriesOpen(false);
+          }}
+          aria-label="Toggle mobile menu"
+        >
+          <svg
+            className="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            {menuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6 text-base relative items-center">
+        <ul className="hidden md:flex gap-6 text-base items-center">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
-
-          {/* Click-to-toggle Dropdown */}
           <li className="relative" ref={countriesRef}>
-            <button
-              className="flex items-center gap-1"
-              onClick={() => setCountriesOpen(!countriesOpen)}
-            >
+            <button onClick={() => setCountriesOpen(!countriesOpen)} className="flex items-center gap-1">
               Countries
               <svg className="w-4 h-4 mt-1" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M5.5 7l4.5 4 4.5-4h-9z" />
@@ -60,56 +82,40 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-
           <li><Link href="/contact">Contact</Link></li>
           <li><Link href="/booking">Enquiry</Link></li>
         </ul>
-
-        {/* Hamburger Icon */}
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            {menuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <ul className="md:hidden px-4 mt-3 space-y-3 bg-blue-600 py-3 rounded">
-          <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-          <li><Link href="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-
-          {/* Toggle Countries Dropdown */}
-          <li>
-            <button
-              onClick={() => setCountriesOpen(!countriesOpen)}
-              className="w-full text-left flex items-center justify-between"
-            >
-              Countries
-              <svg className="w-4 h-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M5.5 7l4.5 4 4.5-4h-9z" />
-              </svg>
-            </button>
-            {countriesOpen && (
-              <ul className="pl-4 mt-2 space-y-2">
-                <li><Link href="/countries/usa" onClick={() => setMenuOpen(false)}>USA</Link></li>
-                <li><Link href="/countries/uk" onClick={() => setMenuOpen(false)}>UK</Link></li>
-                <li><Link href="/countries/canada" onClick={() => setMenuOpen(false)}>Canada</Link></li>
-                <li><Link href="/countries/australia" onClick={() => setMenuOpen(false)}>Australia</Link></li>
-              </ul>
-            )}
-          </li>
-
-          <li><Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-          <li><Link href="/booking" onClick={() => setMenuOpen(false)}>ENQUIRY FORM</Link></li>
-        </ul>
+        <div className="md:hidden mt-2 px-4 py-4 rounded shadow-md text-sm bg-blue-950 text-white space-y-3">
+          <ul className="space-y-2">
+            <li><button onClick={() => handleNavClick('/')}>Home</button></li>
+            <li><button onClick={() => handleNavClick('/about')}>About</button></li>
+            <li>
+              <button
+                onClick={() => setCountriesOpen(!countriesOpen)}
+                className="w-full flex justify-between items-center"
+              >
+                Countries
+                <svg className="w-4 h-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M5.5 7l4.5 4 4.5-4h-9z" />
+                </svg>
+              </button>
+              {countriesOpen && (
+                <ul className="pl-4 mt-2 space-y-2">
+                  <li><button onClick={() => handleNavClick('/countries/usa')}>USA</button></li>
+                  <li><button onClick={() => handleNavClick('/countries/uk')}>UK</button></li>
+                  <li><button onClick={() => handleNavClick('/countries/canada')}>Canada</button></li>
+                  <li><button onClick={() => handleNavClick('/countries/australia')}>Australia</button></li>
+                </ul>
+              )}
+            </li>
+            <li><button onClick={() => handleNavClick('/contact')}>Contact</button></li>
+            <li><button onClick={() => handleNavClick('/booking')}>Enquiry</button></li>
+          </ul>
+        </div>
       )}
     </nav>
   );

@@ -3,19 +3,39 @@ import { useState } from "react";
 import Image from "next/image";
 
 const universityLogos = [
-  "/Harvard University logo.png",
-  "/Princeton University logo.png",
-  "/stanford university logo.webp",
-  "/Brown University.png",
-  "/columbia unversity.png",
-  "/NYUniversity.png",
-  "",
-  "/Princeton University logo.png",
-  "/stanford university logo.webp",
-  "/Brown University.png",
-  "/columbia unversity.png",
-  "/NYUniversity.png",
- 
+  "/USA/Brown University.png",
+  "/USA/columbia unversity.png",
+  "/USA/Harvard University logo.png",
+  "/USA/mcgilluniversity.png",
+  "/USA/NYUniversity.png",
+  "/USA/Princeton University logo.png",
+  "/USA/stanford university logo.webp",
+  "/USA/University of Michigan.jpg",
+  "/uk/Brunel University of London.jpg",
+  "/uk/City, University of London.png",
+  "/uk/Imperial College London.jpg",
+  "/uk/Kingston University, London.png",
+  "/uk/queen mary university.png",
+  "/uk/University College London.png",
+  "/uk/University of London.png",
+  "/uk/University of Sunderland.jpg",
+  "/canada/Northeastern University.png",
+  "/canada/toronto.png",
+  "/canada/university of alberta.jpg",
+  "/canada/University of Calgary.png",
+  "/canada/University of Guelph.png",
+  "/canada/University of Ottawa.png",
+  "/canada/University of Waterloo.png",
+  "/canada/york unviersity.png",
+  "/Australia/australian national university.png",
+  "/Australia/Charles Darwin University Casuarina.jpg",
+  "/Australia/CQUniversity.png",
+  "/Australia/Federation University Australia.jpg",
+  "/Australia/Monash University.png",
+  "/Australia/the university adelaide.png",
+  "/Australia/University of Melbourne.png",
+  "/Australia/University of Sydney.png",
+
   // Add as many logos as needed
 ];
 
@@ -23,7 +43,9 @@ export default function PartnerUniversities() {
   const [showAll, setShowAll] = useState(false);
 
   // Show only first 12 logos (2 rows of 6) unless expanded
-  const displayedLogos = showAll ? universityLogos : universityLogos.slice(0, 12);
+  const displayedLogos = showAll
+    ? universityLogos
+    : universityLogos.slice(0, 12);
 
   return (
     <section className="py-16 px-6 bg-white text-center">
@@ -31,8 +53,9 @@ export default function PartnerUniversities() {
         Our Partner Universities Across Europe
       </h2>
       <p className="text-gray-700 max-w-3xl mx-auto mb-10">
-        Realize Your Academic Dreams: Access Elite Universities across Europe through SNY COSMOS.
-        Your Pathway to Top Universities and Business Schools in Europe.
+        Realize Your Academic Dreams: Access Elite Universities across Europe
+        through SNY COSMOS. Your Pathway to Top Universities and Business
+        Schools in Europe.
       </p>
 
       {/* Grid of logos */}
