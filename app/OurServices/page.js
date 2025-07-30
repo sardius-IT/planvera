@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OurServices() {
   return (
@@ -23,11 +24,12 @@ export default function OurServices() {
       </div>
 
       <div className="mt-16">
-        <button className="bg-blue-800 hover:bg-blue-900 text-white px-6 py-3 rounded-full font-semibold text-sm md:text-base">
-          BOOK MY FREE ONLINE COUNSELLING
-        </button>
+        <Link href="/booking">
+          <button className="bg-blue-800 hover:bg-blue-900 text-white px-6 py-3 rounded-full font-semibold text-sm md:text-base">
+            BOOK MY FREE ONLINE COUNSELLING
+          </button>
+        </Link>
       </div>
     </section>
   );
 }
-
