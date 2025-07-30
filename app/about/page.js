@@ -100,7 +100,7 @@ export default function AboutPage() {
         <div className="space-y-4 text-center md:text-left">
           <h3 className="text-2xl sm:text-3xl font-bold">Student Success Stories</h3>
           <p className="text-base sm:text-lg">
-            Our alumni are placed in top universities and are now working at leading global companies. We believe every student's dream deserves a global stage.
+            Our alumni are placed in top universities and are now working at leading global companies. We believe every student&apos;s dream deserves a global stage.
           </p>
         </div>
       </motion.div>
