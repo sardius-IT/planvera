@@ -66,22 +66,22 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-12 overflow-hidden">
-        {/* ✅ Background Image */}
+      <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 -z-20">
           <Image
-            src="/home1.png" // make sure this is in your /public directory
+            src="/home1.png"
             alt="Background"
             fill
-            className="object-contain object-center opacity-60"
+            className="object-cover object-center opacity-60"
             priority
           />
         </div>
 
-        {/* ✅ Dark overlay for better text contrast */}
+        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/20 -z-10" />
 
-        {/* ✅ Optional decorative gradient */}
+        {/* Decorative gradient */}
         <div className="absolute -top-10 -right-10 w-[500px] h-[500px] bg-gradient-to-br from-pink-200 via-green-100 to-white rounded-full opacity-40 blur-2xl z-10" />
 
         <AnimatePresence mode="wait">
@@ -93,37 +93,32 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="flex flex-col md:flex-row items-center justify-between w-full z-20"
           >
-            {/* Left Text */}
-            <div className="w-full md:w-1/2">
-              <h1 className="text-4xl md:text-4xl font-bold leading-tight mb-6 text-black">
+            {/* Text Section */}
+            <div className="w-full md:w-1/2 text-center md:text-left">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-6 text-black">
                 {animateText(currentContent.title)}{" "}
                 <span className="text-black font-extrabold underline decoration-red-500 underline-offset-4">
                   {animateText(currentContent.highlight)}
                 </span>{" "}
                 {animateText(currentContent.suffix)}
               </h1>
-              <p className="text-white/90 text-lg mb-8">
+
+              <p className="text-white/90 text-base sm:text-lg mb-8">
                 {currentContent.description}
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                {/* Gradient Button: Book a free consultation */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-center md:justify-start">
                 <Link href="/contact">
-                  <button
-                    aria-label="Book a free consultation"
-                    className="bg-gradient-to-r from-orange-400 to-yellow-600  text-white px-6 py-3 rounded-md font-semibold shadow hover:opacity-90 transition"
-                  >
+                  <button className="bg-gradient-to-r from-orange-400 to-yellow-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:opacity-90 transition">
                     Book Free Consultation
                   </button>
                 </Link>
 
-                {/* WhatsApp Button */}
                 <a
                   href="https://wa.me/9666903211"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Chat on WhatsApp"
-                  className="border border-blue-800 text-blue-800 bg-white px-6 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-blue-50 transition"
+                  className="border border-blue-800 text-blue-800 bg-white px-6 py-3 rounded-md font-semibold flex items-center gap-2 justify-center hover:bg-blue-50 transition"
                 >
                   <FaWhatsapp className="text-xl" />
                   WhatsApp
@@ -131,20 +126,21 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="w-full md:w-1/2 relative mt-12 md:mt-0">
+            {/* Image Section */}
+            <div className="w-full md:w-1/2 flex justify-center mt-12 md:mt-0">
               <Image
                 src={currentContent.image}
                 alt={`Image for ${currentContent.title}`}
-                width={500}
-                height={500}
-                className="mx-auto rounded-lg object-cover"
+                width={400}
+                height={400}
+                className="rounded-lg object-contain w-full max-w-[90%] sm:max-w-[400px]"
               />
             </div>
           </motion.div>
         </AnimatePresence>
       </section>
-      {/* Other Sections */}
+
+      {/* Additional Sections */}
       <Achievements />
       <TopDestinations />
       <OurServices />
