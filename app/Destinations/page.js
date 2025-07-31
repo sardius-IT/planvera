@@ -4,39 +4,40 @@ import Link from "next/link";
 
 const destinations = [
   {
-    title: "Study in USA",
-    image: "/flag-united-states-america.jpg",
+    
+    image: "/USA[1].png",
     link: "/countries/usa",
   },
+   {
+   
+    image: "/PLANVERA (1)[1].png",
+    link: "/countries/canada",
+  },
   {
-    title: "Study in UK",
-    image: "/union-jack-flag-background.jpg",
+  
+    image: "/UK.png",
     link: "/countries/uk",
   },
   {
-    title: "Study in Australia",
-    image: "/flag-united-states-america.jpg", // consider fixing wrong flag
+    
+    image: "/PLANVERA[2].png", // consider fixing wrong flag
     link: "/countries/australia",
   },
-  {
-    title: "Study in Canada",
-    image: "/flag-canada.jpg",
-    link: "/countries/canada",
-  },
+ 
  
 ];
 
 export default function Destinations() {
   return (
-    <section className="bg-yellow-100 py-16 px-6 md:px-20">
+    <section className="bg-purple-100 py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6 md:mb-0 py-5">
+        <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6 md:mb-0 py-6 text-center">
             Explore Our Top Study Destinations
           </h2>
         {/* Title & Description */}
         <div className="text-center md:text-left md:flex md:justify-between md:items-start mb-12">
         
-          <p className="text-gray-700 max-w-xl text-justify text-base">
+          <p className="text-gray-700 max-w-xl text-justify text-base ">
             Begin your journey from the comfort of home to the world&apos;s top
             universities. With <b>Global Degrees</b>, you&apos;ll unlock
             life-changing academic experiences and personal growth in countries
@@ -57,9 +58,7 @@ export default function Destinations() {
                   height={400}
                   className="w-full h-64 object-cover"
                 />
-                <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white px-4 py-3 text-lg font-semibold">
-                  {item.title}
-                </div>
+                
               </div>
             </Link>
           ))}
