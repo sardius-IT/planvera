@@ -8,25 +8,51 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold text-blue-900 mb-3">Test Prep</h4>
           <ul className="space-y-2">
-            <li><a href="#">IELTS</a></li>
-            <li><a href="#">TOEFL</a></li>
-            <li><a href="#">PTE</a></li>
-            <li><a href="#">GRE</a></li>
-            <li><a href="#">GMAT</a></li>
-            <li><a href="#">SAT</a></li>
-            <li><a href="#">Duolingo</a></li>
+            <li>
+              <a href="#">IELTS</a>
+            </li>
+            <li>
+              <a href="#">TOEFL</a>
+            </li>
+            <li>
+              <a href="#">PTE</a>
+            </li>
+            <li>
+              <a href="#">GRE</a>
+            </li>
+            <li>
+              <a href="#">GMAT</a>
+            </li>
+            <li>
+              <a href="#">SAT</a>
+            </li>
+            <li>
+              <a href="#">Duolingo</a>
+            </li>
           </ul>
         </div>
 
         {/* Study Abroad Destinations */}
         <div>
-          <h4 className="font-semibold text-blue-900 mb-3">Study Destinations</h4>
+          <h4 className="font-semibold text-blue-900 mb-3">
+            Study Destinations
+          </h4>
           <ul className="space-y-2">
-            <li><a href="#">Study in UK</a></li>
-            <li><a href="#">Study in USA</a></li>
-            <li><a href="#">Study in Canada</a></li>
-            <li><a href="#">Study in Australia</a></li>
-            <li><a href="#">Study in Germany</a></li>
+            <li>
+              <a href="#">Study in UK</a>
+            </li>
+            <li>
+              <a href="#">Study in USA</a>
+            </li>
+            <li>
+              <a href="#">Study in Canada</a>
+            </li>
+            <li>
+              <a href="#">Study in Australia</a>
+            </li>
+            <li>
+              <a href="#">Study in Germany</a>
+            </li>
           </ul>
         </div>
 
@@ -38,13 +64,13 @@ export default function Footer() {
           <h4 className="font-semibold text-blue-900 mb-3">Our Location</h4>
           <div className="rounded-md overflow-hidden shadow-md border border-gray-200">
             <iframe
-              src="https://www.google.com/maps/@16.3280546,80.4494927,3a,75y,205.57h,90t/data=!3m7!1e1!3m5!1sNOBC1T35SQveDfHpDN9pww!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DNOBC1T35SQveDfHpDN9pww%26yaw%3D205.57079!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDcyMi4wIKXMDSoASAFQAw%3D%3D"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.9688200141524!2d80.4490869!3d16.3281484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a358b001881e1c1%3A0x579cfbd91c3d7566!2sInner%20Stop!5e0!3m2!1sen!2sin!4v1699176871709!5m2!1sen!2sin"
               width="100%"
               height="200"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Planvera Map Location"
+              title="Inner Stop Location"
               className="w-full"
             ></iframe>
           </div>
