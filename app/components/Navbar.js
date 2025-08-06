@@ -29,7 +29,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-black/20 text-black px-4 py-3  relative z-50">
+    <nav className="bg-blue-100 px-4 py-3  relative z-20">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
