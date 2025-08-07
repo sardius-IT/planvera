@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   FaWhatsapp,
@@ -8,7 +8,7 @@ import {
   FaXTwitter,
   FaInstagram,
   FaEnvelope,
-} from 'react-icons/fa6';
+} from "react-icons/fa6";
 
 export default function TopInfoBar() {
   return (
@@ -27,7 +27,14 @@ export default function TopInfoBar() {
 
         {/* Center - Phone Numbers */}
         <div className="text-center">
-          Call: <span className="font-medium">+91 9666903211</span> (Guntur)
+          Call:{" "}
+          <a
+            href="tel:+919666903211"
+            className="font-medium text-blue-600 "
+          >
+            +91 9666903211
+          </a>{" "}
+          (Guntur)
         </div>
 
         {/* Right - Social Icons */}
