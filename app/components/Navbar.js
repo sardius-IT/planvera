@@ -29,11 +29,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-100 px-4 py-3  relative z-20">
+    <nav className="bg-blue-950 px-5 relative  ">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/planveralogo.png" alt="Logo" width={120} height={90} className="rounded-full" />
+          <Image src="/planveralogo.png" alt="Logo" width={150} height={90} className="rounded-full" />
         </Link>
 
         {/* Hamburger - Mobile Only */}
@@ -63,7 +63,7 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6 text-base items-center">
+        <ul className="hidden md:flex gap-6 text-base items-center text-white">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
           <li className="relative" ref={countriesRef}>
@@ -83,7 +83,7 @@ export default function Navbar() {
             )}
           </li>
           <li><Link href="/contact">Contact</Link></li>
-          <li><Link href="/booking">Enquiry</Link></li>
+          <li><Link href="/booking">Enquiry Now</Link></li>
         </ul>
       </div>
 
@@ -113,7 +113,7 @@ export default function Navbar() {
               )}
             </li>
             <li><button onClick={() => handleNavClick('/contact')}>Contact</button></li>
-            <li><button onClick={() => handleNavClick('/booking')}>Enquiry</button></li>
+            <li><button onClick={() => handleNavClick('/booking')}>Enquiry Now</button></li>
           </ul>
         </div>
       )}
