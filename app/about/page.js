@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Achievements from "../Achievements/page";
 import TopDestinations from "../TopDestinations/page";
-
+import Link from "next/link";
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -25,10 +25,15 @@ export default function AboutPage() {
             About <span className="text-blue-700">Planvera</span> Consultancy
           </h2>
           <p className="text-base sm:text-lg">
-            Planvera is a premier overseas education consultancy dedicated to guiding students in their journey to study abroad. We specialize in helping students choose the right country, university, and program that fits their academic goals and career ambitions.
+            Planvera is a premier overseas education consultancy dedicated to
+            guiding students in their journey to study abroad. We specialize in
+            helping students choose the right country, university, and program
+            that fits their academic goals and career ambitions.
           </p>
           <p className="text-base sm:text-lg">
-            With a presence in multiple countries and a team of experienced counselors, we ensure a smooth and transparent admission process, from applications to visa and post-arrival support.
+            With a presence in multiple countries and a team of experienced
+            counselors, we ensure a smooth and transparent admission process,
+            from applications to visa and post-arrival support.
           </p>
         </div>
         <div className="md:w-1/2 w-full">
@@ -57,14 +62,22 @@ export default function AboutPage() {
 
           {/* Right: Mission Content */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Our Mission</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">
+              Our Mission
+            </h2>
             <p className="text-gray-700 mb-4 text-base sm:text-lg leading-relaxed">
-              At <span className="font-semibold text-blue-800">Planvera</span>, our mission is to empower students to achieve their global academic and career aspirations by providing expert guidance, personalized counseling, and end-to-end support for overseas education.
+              At <span className="font-semibold text-blue-800">Planvera</span>,
+              our mission is to empower students to achieve their global
+              academic and career aspirations by providing expert guidance,
+              personalized counseling, and end-to-end support for overseas
+              education.
             </p>
             <ul className="text-gray-700 space-y-2 text-left text-sm sm:text-base">
               <li>🌐 Connecting students with top global universities</li>
               <li>🎓 Offering ethical, personalized, and transparent advice</li>
-              <li>📑 Simplifying applications, visas, and pre-departure steps</li>
+              <li>
+                📑 Simplifying applications, visas, and pre-departure steps
+              </li>
               <li>💼 Preparing students for success in global careers</li>
               <li>🌱 Inspiring future-ready global citizens</li>
             </ul>
@@ -98,15 +111,27 @@ export default function AboutPage() {
           className="rounded-xl shadow-md w-full h-auto object-cover"
         />
         <div className="space-y-4 text-center md:text-left">
-          <h3 className="text-2xl sm:text-3xl font-bold">Student Success Stories</h3>
-          <p className="text-base sm:text-lg">
-            Our alumni are placed in top universities and are now working at leading global companies. We believe every student&apos;s dream deserves a global stage.
+          <h3 className="text-2xl sm:text-3xl font-bold">
+            Student Success Stories
+          </h3>
+          <p className="text-base sm:text-sm">
+             At our core, we believe that every student&apos;s dream deserves a
+            place on the global stage. Over the years, our alumni have secured
+            admissions to some of the world &apos;s most prestigious universities and
+            have gone on to build thriving careers at leading international
+            companies. Their journeys are a testament to the power of
+            determination, the right guidance, and a vision that goes beyond
+            borders. Each success story inspires us to continue empowering
+            students to achieve more, dream bigger, and create a future without
+            limits.
           </p>
+          <Link href="/student-success-stories">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-semibold text-sm md:text-base">
+              Student Success
+            </button>
+          </Link>
         </div>
       </motion.div>
     </div>
   );
 }
-
-
-

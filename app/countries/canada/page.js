@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import CanadaUniversities from "../../CanadaUniversities/page";
@@ -25,6 +25,10 @@ export default function CanadaPage() {
     document.body.style.overflow = modalOpen ? "hidden" : "auto";
   }, [modalOpen]);
 
+  const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
   return (
     <>
       <div
@@ -211,6 +215,82 @@ export default function CanadaPage() {
         </div>
       </div>
       <CanadaUniversities />
+      <motion.div
+      className="max-w-6xl mx-auto p-6 max-h-[80vh] overflow-y-auto"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={fadeUp}
+    >
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        Canada Testfolio
+      </h1>
+      <p className="text-center text-gray-900 mb-10">
+        Here’s how Planvera has helped students achieve their study goals in Canada.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Student 1 */}
+        <motion.div
+          className="bg-white rounded-xl shadow p-4 border border-gray-200"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+            Neha R.
+          </h3>
+          <p className="text-sm text-gray-500 mb-1">IELTS: 7.0</p>
+          <p className="text-sm text-gray-500 mb-1">
+            Admitted to: University of British Columbia
+          </p>
+          <p className="text-gray-700 text-sm mt-2">
+            “Planvera made the entire application journey stress-free and guided me with perfect test strategies.”
+          </p>
+        </motion.div>
+
+        {/* Student 2 */}
+        <motion.div
+          className="bg-white rounded-xl shadow p-4 border border-gray-200"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+            Aarav S.
+          </h3>
+          <p className="text-sm text-gray-500 mb-1">PTE: 85</p>
+          <p className="text-sm text-gray-500 mb-1">
+            Admitted to: University of Toronto
+          </p>
+          <p className="text-gray-700 text-sm mt-2">
+            “With Planvera’s coaching and support, I secured my dream admit in Canada. Their SOP and visa prep was amazing.”
+          </p>
+        </motion.div>
+
+        {/* Student 3 */}
+        <motion.div
+          className="bg-white rounded-xl shadow p-4 border border-gray-200"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+            Simran J.
+          </h3>
+          <p className="text-sm text-gray-500 mb-1">IELTS: 8.0</p>
+          <p className="text-sm text-gray-500 mb-1">
+            Admitted to: McGill University
+          </p>
+          <p className="text-gray-700 text-sm mt-2">
+            “Huge thanks to Planvera for their expert mentorship — from test prep to college selection and visa interviews.”
+          </p>
+        </motion.div>
+      </div>
+    </motion.div>
     </>
   );
 }

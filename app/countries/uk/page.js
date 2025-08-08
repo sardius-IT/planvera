@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import UkUniversities from "../../UkUniversities/page"
+import { motion } from "framer-motion";
+import UkUniversities from "../../UkUniversities/page";
 const countryIntakes = {
   UK: ["January", "September"],
 };
@@ -24,6 +25,10 @@ export default function UkPage() {
     document.body.style.overflow = modalOpen ? "hidden" : "auto";
   }, [modalOpen]);
 
+  const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
   return (
     <>
       <div
@@ -210,6 +215,84 @@ export default function UkPage() {
         </div>
       </div>
       <UkUniversities />
+      <motion.div
+        className="max-w-6xl mx-auto p-6 max-h-[80vh] overflow-y-auto"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <h1 className="text-3xl font-bold mb-6 text-center">UK Testfolio</h1>
+        <p className="text-center text-gray-900 mb-10">
+          Here’s how Planvera has helped students successfully prepare for their
+          tests and study in the UK.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Riya Testimonial */}
+          <motion.div
+            className="bg-white rounded-xl shadow p-4 border border-gray-200"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+              Riya Sharma
+            </h3>
+            <p className="text-sm text-gray-500 mb-1">IELTS: 7.5 Band</p>
+            <p className="text-sm text-gray-500 mb-1">
+              Admitted to: University of Manchester
+            </p>
+            <p className="text-gray-700 text-sm mt-2">
+              “The mock tests and personal guidance at Planvera helped me exceed
+              my expectations.”
+            </p>
+          </motion.div>
+
+          {/* Arjun Testimonial */}
+          <motion.div
+            className="bg-white rounded-xl shadow p-4 border border-gray-200"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+              Arjun P.
+            </h3>
+            <p className="text-sm text-gray-500 mb-1">PTE: 84</p>
+            <p className="text-sm text-gray-500 mb-1">
+              Admitted to: University of Leeds
+            </p>
+            <p className="text-gray-700 text-sm mt-2">
+              “The structured training helped me crack the PTE exam and get
+              admission into my dream UK university.”
+            </p>
+          </motion.div>
+
+          {/* Meera Testimonial */}
+          <motion.div
+            className="bg-white rounded-xl shadow p-4 border border-gray-200"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+              Meera K.
+            </h3>
+            <p className="text-sm text-gray-500 mb-1">IELTS: 8.0</p>
+            <p className="text-sm text-gray-500 mb-1">
+              Admitted to: King's College London
+            </p>
+            <p className="text-gray-700 text-sm mt-2">
+              “Planvera helped me refine my English and interview skills to
+              confidently secure a UK student visa.”
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
     </>
   );
 }

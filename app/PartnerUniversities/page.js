@@ -35,6 +35,13 @@ const universityLogos = [
   "/Australia/the university adelaide.png",
   "/Australia/University of Melbourne.png",
   "/Australia/University of Sydney.png",
+  "/eroupe/ETH_Zurich.webp",
+  "/eroupe/Heidelberg University.jpeg",
+  "/eroupe/Karolinska Institute.png",
+  "/eroupe/Lund University.png",
+  "/eroupe/University of Copenhagen.png",
+  "/eroupe/university of oxford.png",
+  "/eroupe/university of amsterdam.png",
 
   // Add as many logos as needed
 ];

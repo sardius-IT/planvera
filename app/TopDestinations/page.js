@@ -23,6 +23,11 @@ const destinations = [
     flag: "/closeup-shot-waving-flag-australia-with-interesting-textures.jpg",
     link: "/countries/australia",
   },
+   {
+    name: "Europe",
+    flag: "/43013.jpg",
+    link: "/countries/europe",
+  },
  
 ];
 

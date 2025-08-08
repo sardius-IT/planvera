@@ -79,6 +79,7 @@ export default function Navbar() {
                 <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/uk">UK</Link></li>
                 <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/canada">Canada</Link></li>
                 <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/australia">Australia</Link></li>
+                                <li className="px-4 py-2 hover:bg-blue-100"><Link href="/countries/europe">Europe</Link></li>
               </ul>
             )}
           </li>
@@ -109,6 +110,7 @@ export default function Navbar() {
                   <li><button onClick={() => handleNavClick('/countries/uk')}>UK</button></li>
                   <li><button onClick={() => handleNavClick('/countries/canada')}>Canada</button></li>
                   <li><button onClick={() => handleNavClick('/countries/australia')}>Australia</button></li>
+                   <li><button onClick={() => handleNavClick('/countries/europe')}>Europe</button></li>
                 </ul>
               )}
             </li>

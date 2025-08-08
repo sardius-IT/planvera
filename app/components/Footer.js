@@ -8,56 +8,47 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold text-blue-900 mb-3">Test Prep</h4>
           <ul className="space-y-2">
-            <li>
-              <a href="#">IELTS</a>
-            </li>
-            <li>
-              <a href="#">TOEFL</a>
-            </li>
-            <li>
-              <a href="#">PTE</a>
-            </li>
-            <li>
-              <a href="#">GRE</a>
-            </li>
-            <li>
-              <a href="#">GMAT</a>
-            </li>
-            <li>
-              <a href="#">SAT</a>
-            </li>
-            <li>
-              <a href="#">Duolingo</a>
-            </li>
+            <li><a href="#">IELTS</a></li>
+            <li><a href="#">TOEFL</a></li>
+            <li><a href="#">PTE</a></li>
+            <li><a href="#">GRE</a></li>
+            <li><a href="#">GMAT</a></li>
+            <li><a href="#">SAT</a></li>
+            <li><a href="#">Duolingo</a></li>
           </ul>
         </div>
 
         {/* Study Abroad Destinations */}
         <div>
-          <h4 className="font-semibold text-blue-900 mb-3">
-            Study Destinations
-          </h4>
+          <h4 className="font-semibold text-blue-900 mb-3">Study Destinations</h4>
           <ul className="space-y-2">
-            <li>
-              <a href="#">Study in UK</a>
-            </li>
-            <li>
-              <a href="#">Study in USA</a>
-            </li>
-            <li>
-              <a href="#">Study in Canada</a>
-            </li>
-            <li>
-              <a href="#">Study in Australia</a>
-            </li>
-            <li>
-              <a href="#">Study in Germany</a>
-            </li>
+            <li><a href="/countries/uk">Study in UK</a></li>
+            <li><a href="/countries/usa">Study in USA</a></li>
+            <li><a href="/countries/canada">Study in Canada</a></li>
+            <li><a href="/countries/australia">Study in Australia</a></li>
+           
           </ul>
         </div>
 
-        {/* Spacer (for better stacking on tablets) */}
-        <div className="hidden md:block" />
+        {/* Legal & Help */}
+        <div >
+        <div>
+          <h4 className="font-semibold text-blue-900 mb-3">Legal & Help</h4>
+          <ul className="space-y-2">
+            <li><a href="/terms">Terms & Conditions</a></li>
+            <li><a href="/PrivacyPolicy">Privacy Policy</a></li>
+          </ul>
+          </div>
+          <div className="py-5">
+          <h4 className="font-semibold text-blue-900 mb-3">Support</h4>
+          <ul className="space-y-2">
+            <li><a href="/faqs">FAQs</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+          </div> 
+        </div>
+
+    
 
         {/* Map Section */}
         <div className="md:col-span-2 col-span-1">

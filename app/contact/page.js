@@ -65,13 +65,14 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 py-10 px-4">
-      {/* 🧾 Contact Info Section */}
-      <div className="max-w-4xl mx-auto mb-10 bg-white rounded-xl shadow-lg p-6 space-y-4">
-        <h2 className="text-3xl font-bold text-center text-[#2954A2]">Contact Planvera Consultancy</h2>
+    <div className="min-h-screen bg-blue-50 py-10 px-4 space-y-10">
+      {/* Intro Section */}
+      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 space-y-4">
+        <h2 className="text-3xl font-bold text-center text-[#2954A2]">
+          Contact Planvera Consultancy
+        </h2>
         <p className="text-gray-700 text-center">
-          Whether you’re planning to study abroad or explore the right career path, we’re here to help. Fill out the
-          form below and our team will reach out to guide you.
+          Whether you’re planning to study abroad or explore the right career path, we’re here to help.
         </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-blue-800 font-medium">
           <span className="bg-blue-100 px-4 py-2 rounded-full">Expert Guidance</span>
@@ -82,45 +83,80 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* 📬 Contact Form */}
-      <div className="flex items-center justify-center p-4 rounded-2xl">
-        <div className="bg-blue-100 max-w-2xl w-full p-8 rounded-2xl shadow-lg space-y-6">
-          <div className="text-center">
-            <h1 className="text-black text-2xl font-bold">Let’s Get In Touch</h1>
-          </div>
+      {/* Unified Section */}
+      <div className="bg-white max-w-6xl mx-auto rounded-2xl shadow-xl p-6 md:p-12 space-y-8">
+        {/* Section Heading */}
+        <div className="text-center space-y-2">
+          <h2 className="text-3xl font-bold text-[#2954A2]">Get in Touch with Us</h2>
+          <p className="text-gray-700">We’d love to hear from you. Reach out or submit your enquiry below.</p>
+        </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Full Name + Email */}
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-black">
-                  Full Name <span className="text-red-600">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={form.fullName}
-                  onChange={handleChange}
-                  className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-black">
-                  Email Address <span className="text-red-600">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
-                  required
-                />
-              </div>
+        {/* 2-Column Layout */}
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Left Side: Info + Map */}
+          <div className="space-y-6 text-gray-800">
+            <div>
+              <p className="font-semibold text-lg">📞 Phone</p>
+              <p>
+                <a href="tel:+919666903211" className="text-blue-700 hover:underline">
+                  +91 9666903211
+                </a>
+              </p>
             </div>
 
-            {/* Mobile Number */}
+            <div>
+              <p className="font-semibold text-lg">✉️ Email</p>
+              <p>
+                <a href="mailto:planveraconsultancy@gmail.com" className="text-blue-700 hover:underline">
+                  planveraconsultancy@gmail.com
+                </a>
+              </p>
+            </div>
+
+            <div className="rounded-xl overflow-hidden shadow">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.9688200141524!2d80.4490869!3d16.3281484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a358b001881e1c1%3A0x579cfbd91c3d7566!2sInner%20Stop!5e0!3m2!1sen!2sin!4v1699176871709!5m2!1sen!2sin"
+                width="100%"
+                height="250"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Planvera Location"
+                className="w-full"
+              ></iframe>
+            </div>
+          </div>
+
+          {/* Right Side: Contact Form */}
+          <form onSubmit={handleSubmit} className="space-y-4 bg-blue-100 p-4 rounded-2xl">
+            <div>
+              <label className="block text-sm font-medium text-black">
+                Full Name <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="text"
+                name="fullName"
+                value={form.fullName}
+                onChange={handleChange}
+                className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-black">
+                Email Address <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full rounded-lg p-3 text-sm shadow focus:outline-none"
+                required
+              />
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-black">
                 Mobile Number <span className="text-red-600">*</span>
@@ -135,7 +171,6 @@ export default function ContactForm() {
               />
             </div>
 
-            {/* Comments */}
             <div>
               <label className="block text-sm font-medium text-black">Additional Comments</label>
               <textarea
@@ -147,7 +182,6 @@ export default function ContactForm() {
               />
             </div>
 
-            {/* Submit */}
             <div className="text-center">
               <button
                 type="submit"
@@ -162,5 +196,3 @@ export default function ContactForm() {
     </div>
   );
 }
-
-
