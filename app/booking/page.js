@@ -15,7 +15,8 @@ export default function Home() {
     workExperience: "",
     workYears: "",
     scores: "",
-    testTypes: { IELTS: false, TOEFL: false, GRE: false },
+    testTypes: { IELTS: false, TOEFL: false, GRE: false,PTE : false,GMAT : false,Doulingo : false },
+    testScores: { IELTS: "", TOEFL: "", GRE: "",PTE:"",GMAT:"",Doulingo:"" },
     city: "",
     referral: "",
   });
@@ -55,14 +56,27 @@ export default function Home() {
     setForm({ ...form, [name]: value });
   };
 
+  // Toggle checkbox selection
   const handleTestToggle = (testName) => {
-    setForm({
-      ...form,
+    setForm((prev) => ({
+      ...prev,
       testTypes: {
-        ...form.testTypes,
-        [testName]: !form.testTypes[testName],
+        ...prev.testTypes,
+        [testName]: !prev.testTypes[testName],
       },
-    });
+    }));
+  };
+  // Handle score input change
+  const handleScoreChange = (testName, value) => {
+    const scoreRegex = /^[0-9]{0,4}$/; // 4 digits max
+    if (!scoreRegex.test(value)) return;
+    setForm((prev) => ({
+      ...prev,
+      testScores: {
+        ...prev.testScores,
+        [testName]: value,
+      },
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -100,7 +114,7 @@ export default function Home() {
         workExperience: "",
         workYears: "",
         scores: "",
-        testTypes: { IELTS: false, TOEFL: false, GRE: false },
+        testTypes: { IELTS: false, TOEFL: false, GRE: false,PTE : false,GMAT : false,Doulingo : false },
         city: "",
         referral: "",
       });
@@ -110,16 +124,16 @@ export default function Home() {
   const showScoreField = Object.values(form.testTypes).some(Boolean);
 
   return (
-    <div className="relative min-h-screen flex p-6 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center p-6 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover filter blur-xs scale-110 z-0 rounded-2xl"
-        style={{ backgroundImage: "url('/airplane-aircraft-travel-trip.jpg')" }}
+        style={{ backgroundImage: "url('/3_14.jpg')" }}
       ></div>
 
-      <div className="relative z-10 w-full max-w-3xl">
+      <div className="relative z-10 w-full max-w-3xl grid place-items-center min-h-screen justify-center ">
         <form
           onSubmit={handleSubmit}
-          className="bg-white/30 backdrop-blur-md p-8 rounded-xl shadow-md w-full space-y-4"
+          className="bg-white/30 backdrop-blur-md p-8 rounded-xl shadow-md w-full space-y-4 "
         >
           <h2 className="text-3xl font-bold mb-2 text-center">
             Master Applications Form
@@ -264,28 +278,36 @@ export default function Home() {
             />
           )}
 
-          <div className="flex gap-4 flex-wrap">
-            {["IELTS", "TOEFL", "GRE"].map((test) => (
-              <label key={test} className="flex items-center gap-2 text-sm">
+          {/* Test Selection */}
+          <div>
+            <label className="block font-medium mb-2">Select Tests:</label>
+            {["IELTS", "TOEFL", "GRE","PTE","GMAT","Doulingo",].map((test) => (
+              <label key={test} className=" space-x-2">
                 <input
                   type="checkbox"
                   checked={form.testTypes[test]}
                   onChange={() => handleTestToggle(test)}
                 />
-                {test}
+                <span>{test}</span>
               </label>
             ))}
           </div>
 
-          {showScoreField && (
-            <input
-              name="scores"
-              placeholder="Enter Test Score "
-              value={form.scores}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            />
-          )}
+          {/* Dynamic Score Fields */}
+          {Object.entries(form.testTypes)
+            .filter(([_, checked]) => checked)
+            .map(([test]) => (
+              <input
+                key={test}
+                placeholder={`Enter ${test} Score`}
+                value={form.testScores[test]}
+                onChange={(e) => handleScoreChange(test, e.target.value)}
+                className="w-full p-2 border rounded"
+                required
+              />
+            ))}
+
+        
 
           <input
             name="city"
@@ -317,7 +339,7 @@ export default function Home() {
             Submit
           </button>
 
-          {status && <p className="text-red-600 text-sm mt-2">{status}</p>}
+          {status && <p className="text-green-600 text-sm mt-2">{status}</p>}
         </form>
       </div>
     </div>

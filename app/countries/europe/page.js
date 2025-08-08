@@ -1,14 +1,20 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import AustraliaUniversities from "../../AustraliaUniversities/page"; // <-- create this component
+import EuropeUniversities from "../../EuropeUniversities/page"; // ✅ Correct import
 
 const countryIntakes = {
-  Australia: ["February", "July", "November"],
+  Europe: ["January", "September"],
 };
 
-export default function AustraliaPage() {
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+export default function EuropePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -25,24 +31,20 @@ export default function AustraliaPage() {
     document.body.style.overflow = modalOpen ? "hidden" : "auto";
   }, [modalOpen]);
 
-  const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
   return (
     <>
       <div
         className="bg-no-repeat bg-cover min-h-screen px-4 py-10"
-        style={{ backgroundImage: `url('/f3xg_dsif_220804.jpg')` }}
+        style={{ backgroundImage: `url('/imgi_42_flat-europe-day-illustration_23-2149356740.jpg')` }}
       >
         {/* Hero Section */}
         <div className="bg-white/70 backdrop-blur-sm rounded-xl md:p-12 p-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 shadow-lg">
           <div className="max-w-xl">
             <h1 className="text-4xl md:text-5xl font-bold leading-snug text-gray-900">
               <span className="underline decoration-red-500 decoration-4 underline-offset-4">
-                Australia:
+                Europe:
               </span>{" "}
-              A globally respected education system with a vibrant lifestyle.
+              A hub of academic excellence and cultural diversity.
             </h1>
             <div className="mt-8 flex flex-wrap gap-4">
               <button
@@ -55,8 +57,8 @@ export default function AustraliaPage() {
           </div>
           <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl">
             <Image
-              src="/pretty-happy-woman-using-laptop-while-sitting-cafe-young-woman-sitting-coffee-shop-working-laptop.jpg"
-              alt="Australia Student"
+              src="/imgi_36_attractive-happy-young-girl-with-flag-european-union_341862-12887.jpg"
+              alt="Europe Student"
               fill
               className="object-contain"
               priority
@@ -160,25 +162,25 @@ export default function AustraliaPage() {
 
         {/* Stats */}
         <div className="bg-[#eaeef5] mt-16 rounded-3xl p-6 md:p-10 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-8 shadow-sm max-w-7xl mx-auto">
-          <StatCard value="40+" label="Top Ranked Universities" />
-          <StatCard value="$20k–$45k" label="Annual Tuition Fees" />
-          <StatCard value="500k+" label="International Students" />
-          <StatCard value="2–4 Years" label="Post-Study Work Rights" />
+          <StatCard value="1000+" label="Universities Across Europe" />
+          <StatCard value="€3k–€15k" label="Annual Tuition Fees" />
+          <StatCard value="1M+" label="International Students" />
+          <StatCard value="1–2 Years" label="Master’s Duration" />
         </div>
 
-        {/* Why Study in Australia Section */}
+        {/* Why Study in Europe */}
         <div className="max-w-7xl mx-auto mt-20 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 text-center">
-            Why Study in Australia?
+            Why Study in Europe?
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {[
-              ["🌏 Globally Recognized Degrees", "Australian universities are ranked among the top in the world."],
-              ["🌤️ Vibrant Lifestyle", "Enjoy an active lifestyle, friendly people, and stunning natural beauty."],
-              ["👨‍🎓 Post-Study Work Visa", "Up to 4 years of post-study work opportunities."],
-              ["🎓 Quality Education", "Focus on practical learning and industry alignment."],
-              ["💼 Employment Prospects", "Australia has a strong economy and job market for graduates."],
-              ["🛡️ Safe Environment", "A safe and welcoming environment for international students."]
+            {[ 
+              ["🎓 World-Class Education", "Many European universities are in the top global rankings."],
+              ["💶 Affordable Tuition", "Many public universities have low or no tuition fees."],
+              ["✈️ Schengen Access", "Travel freely across 26 European countries."],
+              ["🌍 Diverse Cultures", "Study in multicultural cities with rich history."],
+              ["🗣️ Multilingual Environment", "English-taught programs are widely available."],
+              ["💼 Career Opportunities", "Stay back and work after graduation in many countries."],
             ].map(([title, desc], i) => (
               <div key={i} className="bg-blue-100 p-5 rounded-xl shadow">
                 <h3 className="font-semibold text-lg">{title}</h3>
@@ -189,94 +191,78 @@ export default function AustraliaPage() {
         </div>
       </div>
 
-      {/* Universities Carousel Section */}
-      <AustraliaUniversities />
-          <motion.div
-      className="max-w-6xl mx-auto p-6 max-h-[80vh] overflow-y-auto"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-      variants={fadeUp}
-    >
-      <h1 className="text-3xl font-bold mb-6 text-center">
-        Australia Testfolio
-      </h1>
-      <p className="text-center text-gray-900 mb-10">
-        See how Planvera has helped students successfully prepare and study in Australia.
-      </p>
+      {/* ✅ Europe Universities Carousel */}
+      <EuropeUniversities />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Student 1 */}
-        <motion.div
-          className="bg-white rounded-xl shadow p-4 border border-gray-200"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
-            Riya S.
-          </h3>
-          <p className="text-sm text-gray-500 mb-1">IELTS: 7.5</p>
-          <p className="text-sm text-gray-500 mb-1">
-            Admitted to: University of Melbourne
-          </p>
-          <p className="text-gray-700 text-sm mt-2">
-            “The team at Planvera helped me ace my IELTS and get into my dream university in Australia. Highly recommended!”
-          </p>
-        </motion.div>
+      {/* Testimonials */}
+      <motion.div
+        className="max-w-6xl mx-auto p-6 max-h-[80vh] overflow-y-auto"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <h1 className="text-3xl font-bold mb-6 text-center">
+          Europe Testfolio
+        </h1>
+        <p className="text-center text-gray-900 mb-10">
+          See how Planvera has helped students successfully prepare and study in Europe.
+        </p>
 
-        {/* Student 2 */}
-        <motion.div
-          className="bg-white rounded-xl shadow p-4 border border-gray-200"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
-            Kabir T.
-          </h3>
-          <p className="text-sm text-gray-500 mb-1">PTE: 79</p>
-          <p className="text-sm text-gray-500 mb-1">
-            Admitted to: Monash University
-          </p>
-          <p className="text-gray-700 text-sm mt-2">
-            “From test coaching to visa support, Planvera handled everything with professionalism and care.”
-          </p>
-        </motion.div>
-
-        {/* Student 3 */}
-        <motion.div
-          className="bg-white rounded-xl shadow p-4 border border-gray-200"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
-            Meera D.
-          </h3>
-          <p className="text-sm text-gray-500 mb-1">IELTS: 8.0</p>
-          <p className="text-sm text-gray-500 mb-1">
-            Admitted to: Australian National University
-          </p>
-          <p className="text-gray-700 text-sm mt-2">
-            “Planvera guided me through every step — from shortlisting programs to submitting a winning SOP. Forever grateful!”
-          </p>
-        </motion.div>
-      </div>
-    </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[ 
+            {
+              name: "Aarav B.",
+              test: "IELTS: 7.0",
+              university: "University of Amsterdam",
+              feedback:
+                "Planvera's application support was spot on. I couldn’t have made it without them!",
+            },
+            {
+              name: "Sanya R.",
+              test: "TOEFL: 104",
+              university: "KU Leuven",
+              feedback:
+                "They helped me understand European intakes, scholarships, and documents. Amazing guidance!",
+            },
+            {
+              name: "Neel M.",
+              test: "Duolingo: 125",
+              university: "University of Helsinki",
+              feedback:
+                "Every step was smooth — from shortlisting to visa. Highly professional and reliable team.",
+            },
+          ].map((student, i) => (
+            <motion.div
+              key={i}
+              className="bg-white rounded-xl shadow p-4 border border-gray-200"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
+              <h3 className="text-xl font-semibold text-[#2954A2] mb-2">
+                {student.name}
+              </h3>
+              <p className="text-sm text-gray-500 mb-1">{student.test}</p>
+              <p className="text-sm text-gray-500 mb-1">
+                Admitted to: {student.university}
+              </p>
+              <p className="text-gray-700 text-sm mt-2">{`“${student.feedback}”`}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </>
   );
 }
 
-// ✅ Basic StatCard
-function StatCard(props) {
+// ✅ StatCard component
+function StatCard({ value, label }) {
   return (
     <div className="text-center">
-      <h2 className="text-4xl font-bold text-blue-900">{props.value}</h2>
-      <p className="text-lg font-medium text-black mt-2">{props.label}</p>
+      <h2 className="text-4xl font-bold text-blue-900">{value}</h2>
+      <p className="text-lg font-medium text-black mt-2">{label}</p>
     </div>
   );
 }

@@ -19,6 +19,10 @@ const destinations = [
     image: "/PLANVERA[2].png", // consider fixing wrong flag
     link: "/countries/australia",
   },
+   {
+    image: "/Europe.png", // consider fixing wrong flag
+    link: "/countries/europe",
+  },
 ];
 
 export default function Destinations() {

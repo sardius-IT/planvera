@@ -5,45 +5,38 @@ import Image from "next/image";
 const universities = [
   {
     name: "Harvard University",
-    logo: "/Harvard University logo.png",
-   
+    logo: "/USA/Harvard University logo.png",
     ranking: 17,
   },
   {
     name: "Princeton University",
-    logo: "/Princeton University logo.png",
-   
+    logo: "/USA/Princeton University logo.png",
     ranking: 28,
   },
   {
     name: "stanford university",
-    logo: "/stanford university logo.webp",
-   
+    logo: "/USA/stanford university logo.webp",
     ranking: 38,
   },
   {
     name: "University of Michigan",
-    logo: "/University of Michigan.jpg",
-   
+    logo: "/USA/University of Michigan.jpg",
     ranking: 52,
   },
   {
     name: "Brown University",
-    logo: "/Brown University.png",
-    
+    logo: "/USA/Brown University.png",
     ranking: 11,
   },
   {
     name: "columbia unversity",
-    logo: "/columbia unversity.png",
-  
+    logo: "/USA/columbia unversity.png",
     ranking: 23,
   },
   // Duplicate to ensure smooth loop
   {
     name: "NYUniversity",
-    logo: "/NYUniversity.png",
-   
+    logo: "/USA/NYUniversity.png",
     ranking: 17,
   },
 ];
