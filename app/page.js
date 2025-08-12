@@ -1,10 +1,11 @@
 "use client";
 
+import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Achievements from "./Achievements/page";
 import TopDestinations from "./TopDestinations/page";
 import Destinations from "./Destinations/page";
@@ -14,20 +15,20 @@ import OurServices from "./OurServices/page";
 const contentData = [
   {
     id: 1,
-    title: "Unlock Global Career Opportunities with a",
+    title: "Your Trusted Overseas Education Consultants in Guntur –",
     highlight: "Free MS Admission Consultation",
-    suffix: "by Planvera Experts.",
+    suffix: "from Planvera Experts.",
     description:
-      "Our counselors help you choose the right course, country, and university for your Master's program, tailored to your goals and background.",
+      "As Guntur’s best abroad consultancy, we guide students to top universities in the USA, UK, Canada, Germany, and Australia. From choosing the right course to securing your visa, our study abroad consultancy in Guntur is with you every step.",
     image: "/homepageimage.png",
   },
   {
     id: 2,
-    title: "Secure Admission in Top Universities with",
+    title: "Best Consultancy for USA in Guntur with",
     highlight: "End-to-End MS Application Support",
-    suffix: "from Planvera’s Expert Team.",
+    suffix: "tailored to your career goals.",
     description:
-      "From shortlisting the best universities to crafting strong SOPs and preparing for interviews, we ensure your MS application stands out globally.",
+      "We shortlist universities, craft strong SOPs, prepare for interviews, and provide visa guidance. As a leading foreign education consultancy, we ensure your profile shines globally.",
     image: "/homeabroadconsultants.webp",
   },
 ];
@@ -52,12 +53,12 @@ const animateText = (text) => (
   </motion.span>
 );
 
-export default function HomePage() {
+export default function Page() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % contentData.length);
+      setCurrentIndex((prev) => (prev + 1) % contentData.length);
     }, 4000);
     return () => clearInterval(timer);
   }, []);
@@ -66,22 +67,39 @@ export default function HomePage() {
 
   return (
     <>
+      {/* ✅ SEO HEAD SECTION */}
+      <Head>
+        <title>Best Overseas Education Consultants in Guntur | Planvera</title>
+        <meta
+          name="description"
+          content="Plan your study abroad with Guntur’s top overseas consultancy with expert guidance for USA, UK, Canada, Germany and Australia which offers free counseling and guidance."
+        />
+        <meta
+          name="keywords"
+          content="overseas education consultants in Guntur, best abroad consultancy in Guntur, study abroad consultancy Guntur, foreign education consultancy, best consultancy for USA in Guntur"
+        />
+        <meta property="og:title" content="Best Overseas Education Consultants in Guntur | Planvera" />
+        <meta
+          property="og:description"
+          content="Plan your study abroad with Guntur’s top overseas consultancy with expert guidance for USA, UK, Canada, Germany and Australia which offers free counseling and guidance."
+        />
+        <meta property="og:image" content="/planvera-og-image.jpg" />
+        <meta property="og:type" content="website" />
+      </Head>
+
+      {/* ✅ HERO SECTION */}
       <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 overflow-hidden">
-        {/* Background Image */}
         <div className="absolute inset-0 -z-20">
           <Image
             src="/home1.png"
-            alt="Background"
+            alt="Planvera – Best Overseas Education Consultants in Guntur"
             fill
-            className="object-cover object-center opacity-60"
+            className="object-cover opacity-60"
             priority
           />
         </div>
 
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/20 -z-10" />
-
-        {/* Decorative gradient */}
         <div className="absolute -top-10 -right-10 w-[500px] h-[500px] bg-gradient-to-br from-pink-200 via-green-100 to-white rounded-full opacity-40 blur-2xl z-10" />
 
         <AnimatePresence mode="wait">
@@ -140,7 +158,7 @@ export default function HomePage() {
         </AnimatePresence>
       </section>
 
-      {/* Additional Sections */}
+      {/* Other sections */}
       <Achievements />
       <TopDestinations />
       <OurServices />
@@ -149,3 +167,4 @@ export default function HomePage() {
     </>
   );
 }
+
