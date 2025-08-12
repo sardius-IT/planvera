@@ -190,7 +190,7 @@ export default function UkPage() {
               ],
               [
                 "⌛ Shorter Course Duration",
-                "Finish your bachelor's in 3 years and master's in 1 year.",
+                "Finish your bachelor's in 3 years and master &apos; s in 1 year.",
               ],
               [
                 "🌐 Internationally Recognized",
@@ -224,7 +224,7 @@ export default function UkPage() {
       >
         <h1 className="text-3xl font-bold mb-6 text-center">UK Testfolio</h1>
         <p className="text-center text-gray-900 mb-10">
-          Here’s how Planvera has helped students successfully prepare for their
+          Here&apos;s how Planvera has helped students successfully prepare for their
           tests and study in the UK.
         </p>
 
@@ -284,7 +284,7 @@ export default function UkPage() {
             </h3>
             <p className="text-sm text-gray-500 mb-1">IELTS: 8.0</p>
             <p className="text-sm text-gray-500 mb-1">
-              Admitted to: King's College London
+              Admitted to: King&apos;s College London
             </p>
             <p className="text-gray-700 text-sm mt-2">
               “Planvera helped me refine my English and interview skills to
