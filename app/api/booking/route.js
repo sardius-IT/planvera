@@ -15,6 +15,7 @@ export async function POST(request) {
       },
     });
 
+    // 📩 Email to you (consultancy)
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: "planveraconsultancy@gmail.com",
@@ -41,16 +42,32 @@ export async function POST(request) {
       `,
     };
 
+    // 📩 Auto-reply to applicant
+    const autoReplyOptions = {
+      from: process.env.EMAIL_USER,
+      to: data.email, // send to applicant
+      subject: "Thank you for your application – Planvera Consultancy ",
+      html: `
+        <p>Dear ${data.name},</p>
+        <p>Thank you for submitting your application with <strong>Planvera Consultancy</strong>.</p>
+        <p>We have received your details and our team will get back to you shortly.</p>
+        <br/>
+        <p style="font-size:14px;color:#555;">Best Regards,<br/>Planvera Consultancy Team</p>
+      `,
+    };
+
+    // Send both emails
     await transporter.sendMail(mailOptions);
+    await transporter.sendMail(autoReplyOptions);
 
     return new Response(
       JSON.stringify({ message: "Email sent successfully!" }),
       { status: 200 }
     );
   } catch (error) {
-    console.error("Email error:", error);
+    console.error("Email error:", error.message);
     return new Response(
-      JSON.stringify({ message: "Failed to send email." }),
+      JSON.stringify({ message: "Failed to send email.", error: error.message }),
       { status: 500 }
     );
   }
